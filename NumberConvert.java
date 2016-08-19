@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 /**
  * Created by Mahmoud Gamal on 7/26/2016.
+ * updated 8/19/2016
  * Convert numbers to word
  * Version 0.1
  * license GPL2
@@ -14,9 +15,8 @@ import java.util.HashMap;
 
 public final class NumberConvert {
 
-        private static String number;
+        private static String number, returnedNumber;
         private static int length;
-
 
     private static String numberMap(int number) {
 
@@ -60,24 +60,20 @@ public final class NumberConvert {
     }
 
 
-    public static void getNumberInString(int number) {
+    public static String getNumberInString(int number) {
 
         NumberConvert.number = "" + number;
         NumberConvert.length = NumberConvert.number.length();
 
-
-
-        if (number < 100)
-            System.out.println(tens(number));
+       if (number < 100)
+           returnedNumber = tens(number);
        else if (number < 1000)
-            System.out.println(hundreds(number));
-        else if (number < 1000000)
-            System.out.println(thousands(number));
+           returnedNumber = hundreds(number);
+       else if (number < 1000000)
+           returnedNumber = thousands(number);
        else if (number < 1000000000)
-            System.out.println(millions(number));
-
-
-
+           returnedNumber = millions(number);
+        return returnedNumber;
     }
 
 
